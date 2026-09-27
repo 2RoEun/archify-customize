@@ -326,6 +326,10 @@ Why the last sentence: in testing, a small model once listed a file's readers an
 | `busy` (exit 4) | another build of the same map is running; wait and retry |
 | `no map found` from `mm.py` | build first, then pass `--graph .../NAME.minimap.json` or set `MINIMAP_GRAPH` |
 
+## License
+
+MIT — free for anyone to use, copy, modify and share, including commercially; keep the copyright notice. See [LICENSE](LICENSE). archify itself has its own MIT license (© tt-a1i).
+
 ## 13. 한국어 안내
 
 어떤 파이썬 프로젝트나 라이브러리든 구조를 그림으로 띄워서, 박스를 누르면 함수 단위까지 **무엇이 들어 있고, 무엇을 쓰고, 누가 쓰는지** 자세히 볼 수 있게 해 주는 도구입니다. 모든 연결에는 신뢰 등급과 근거(파일:줄)가 붙습니다. 같은 지도를 터미널에서도 조회할 수 있어서, AI 에이전트가 코드를 고치기 전에 "이걸 바꾸면 어디가 깨지나"를 확인할 수 있습니다.
