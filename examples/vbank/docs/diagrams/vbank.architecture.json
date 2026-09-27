@@ -1,0 +1,117 @@
+{
+ "schema_version": 1,
+ "diagram_type": "architecture",
+ "meta": {
+  "title": "vbank",
+  "output": "vbank-minimap.html",
+  "quality_profile": "showcase"
+ },
+ "components": [
+  {
+   "id": "cli",
+   "type": "external",
+   "label": "CLI",
+   "pos": [
+    40,
+    60
+   ],
+   "size": [
+    140,
+    60
+   ]
+  },
+  {
+   "id": "reports",
+   "type": "backend",
+   "label": "reports",
+   "pos": [
+    260,
+    60
+   ],
+   "size": [
+    140,
+    60
+   ]
+  },
+  {
+   "id": "accounts",
+   "type": "backend",
+   "label": "accounts",
+   "pos": [
+    480,
+    60
+   ],
+   "size": [
+    140,
+    60
+   ]
+  },
+  {
+   "id": "store",
+   "type": "backend",
+   "label": "store",
+   "pos": [
+    480,
+    220
+   ],
+   "size": [
+    140,
+    60
+   ]
+  },
+  {
+   "id": "events",
+   "type": "database",
+   "label": "events.jsonl",
+   "pos": [
+    260,
+    220
+   ],
+   "size": [
+    140,
+    60
+   ]
+  }
+ ],
+ "connections": [
+  {
+   "id": "cli-to-reports",
+   "from": "cli",
+   "to": "reports",
+   "label": "calls"
+  },
+  {
+   "id": "reports-to-accounts",
+   "from": "reports",
+   "to": "accounts",
+   "label": "calls"
+  },
+  {
+   "id": "accounts-to-store",
+   "from": "accounts",
+   "to": "store",
+   "label": "calls",
+   "labelAt": [
+    550,
+    134
+   ]
+  },
+  {
+   "id": "store-to-events",
+   "from": "store",
+   "to": "events",
+   "label": "writes"
+  },
+  {
+   "id": "reports-to-events",
+   "from": "reports",
+   "to": "events",
+   "label": "reads (declared)",
+   "variant": "dashed",
+   "labelAt": [
+    330,
+    134
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+runs/
+prev/
+baselines/
+.*.tmp
+.*.lock
+*.minimap.json
+*-minimap.html

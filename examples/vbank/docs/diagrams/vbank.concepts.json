@@ -1,0 +1,35 @@
+{
+ "schema": "archify-minimap-concepts/1",
+ "concepts": {
+  "cli": {
+   "label": "CLI",
+   "targets": [
+    "mod:vbank.cli"
+   ]
+  },
+  "reports": {
+   "label": "reports",
+   "targets": [
+    "mod:vbank.reports"
+   ]
+  },
+  "accounts": {
+   "label": "accounts",
+   "targets": [
+    "mod:vbank.accounts"
+   ]
+  },
+  "store": {
+   "label": "store",
+   "targets": [
+    "mod:vbank.store"
+   ]
+  },
+  "events": {
+   "label": "events.jsonl",
+   "targets": [
+    "data:data/events.jsonl"
+   ]
+  }
+ }
+}

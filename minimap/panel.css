@@ -1,0 +1,94 @@
+#mm-panel{position:fixed;top:0;right:0;width:min(520px,92vw);height:100vh;overflow:auto;z-index:99999;
+  background:#0b1220;color:#e2e8f0;border-left:1px solid #334155;font:13px/1.45 ui-sans-serif,system-ui,sans-serif;
+  padding:12px 14px;box-sizing:border-box;transform:translateX(105%);transition:transform .18s ease}
+#mm-panel.open{transform:none}
+#mm-panel header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+#mm-panel header strong{font-size:15px}
+#mm-panel em{font-style:normal;color:#94a3b8;font-size:11px;margin-left:4px}
+#mm-panel code{color:#7dd3fc;font-size:11px;word-break:break-all}
+#mm-panel small{color:#64748b}
+#mm-panel a{color:#e2e8f0;cursor:pointer;text-decoration:none}
+#mm-panel a:hover{color:#38bdf8}
+#mm-close{background:none;border:0;color:#94a3b8;font-size:20px;cursor:pointer}
+#mm-search{width:100%;margin:8px 0 4px;padding:6px 8px;background:#111827;color:#e2e8f0;border:1px solid #334155;border-radius:6px}
+#mm-results a{display:block;padding:2px 4px}
+#mm-tabs{display:flex;gap:4px;margin:8px 0}
+#mm-tabs button{flex:1;padding:6px 4px;background:#111827;color:#cbd5e1;border:1px solid #334155;border-radius:6px;cursor:pointer;font-size:12px}
+#mm-tabs button.on{background:#0e7490;color:#fff;border-color:#22d3ee}
+#mm-roll{display:block;color:#94a3b8;font-size:12px;margin-bottom:6px}
+#mm-tree ul{list-style:none;margin:0;padding-left:14px;border-left:1px dashed #334155}
+#mm-tree>ul{padding-left:0;border:0}
+#mm-tree li{margin:2px 0}
+.mm-tog{display:inline-block;width:14px;color:#64748b;cursor:pointer}
+.mm-g{display:inline-block;margin-left:4px;padding:0 5px;border-radius:9px;font-size:10px;border:1px solid}
+.mm-verified{color:#34d399;border-color:#34d399}
+.mm-static{color:#38bdf8;border-color:#38bdf8}
+.mm-guess{color:#fbbf24;border-color:#fbbf24;border-style:dashed}
+.mm-runtime-only{color:#f472b6;border-color:#f472b6}
+#mm-legend{margin-top:12px;color:#94a3b8;font-size:11px;border-top:1px solid #1f2937;padding-top:8px}
+[data-node-id]{cursor:pointer}
+#mm-grip{display:none;width:48px;height:6px;border-radius:3px;background:#475569;margin:2px auto 10px;touch-action:none;cursor:ns-resize}
+.mm-row{display:flex;align-items:flex-start;gap:2px}
+.mm-body{flex:1;min-width:0;overflow-wrap:anywhere}
+.mm-count{display:inline-block;margin-left:4px;padding:0 5px;border-radius:9px;background:#1e293b;color:#94a3b8;font-size:10px}
+.mm-loc{display:block}
+li.mm-more button{margin:4px 0;padding:6px 10px;background:#111827;color:#cbd5e1;border:1px solid #334155;border-radius:6px}
+#mm-panel code,#mm-meta{overflow-wrap:anywhere}
+/* touch screens of any width (e.g. a phone in landscape keeps the side panel but gets finger-sized targets) */
+@media (pointer:coarse){
+  #mm-close{min-width:44px;min-height:44px;font-size:26px}
+  #mm-tabs button{min-height:44px;font-size:14px}
+  #mm-search{min-height:44px;font-size:16px}
+  .mm-row{min-height:40px}
+  .mm-tog{width:32px;min-height:40px;line-height:40px;font-size:18px;text-align:center}
+  .mm-body{padding:9px 0}
+  #mm-results a{padding:10px 6px}
+}
+/* phones (target: Galaxy S26 Ultra, CSS viewport 412 x 891): bottom sheet */
+@media (max-width:700px){
+  #mm-panel{top:auto;left:0;right:0;bottom:0;width:100%;height:var(--mm-h,62vh);max-height:94vh;
+    border-left:0;border-top:1px solid #334155;border-radius:16px 16px 0 0;transform:translateY(105%);
+    padding:6px 12px calc(16px + env(safe-area-inset-bottom));font-size:15px;box-shadow:0 -8px 24px rgba(0,0,0,.45)}
+  #mm-panel.open{transform:none}
+  #mm-grip{display:block}
+  #mm-panel header strong{font-size:16px}
+  #mm-close{font-size:30px;padding:0 10px;min-width:44px;min-height:44px}
+  #mm-search{font-size:16px;padding:10px 12px;min-height:44px}
+  #mm-results a{padding:10px 6px;border-bottom:1px solid #1f2937}
+  #mm-tabs button{padding:10px 4px;font-size:15px;min-height:44px}
+  #mm-tabs .mm-long{display:none}
+  #mm-roll{font-size:14px;padding:6px 0}
+  #mm-roll input{width:20px;height:20px;vertical-align:middle}
+  #mm-tree ul{padding-left:10px}
+  #mm-tree li{margin:2px 0}
+  .mm-row{min-height:40px}
+  .mm-tog{width:32px;min-height:40px;line-height:40px;font-size:18px;text-align:center}
+  .mm-body{padding:9px 0}
+  .mm-g{font-size:11px;padding:1px 6px}
+  #mm-back{display:inline-block;padding:8px 4px}
+}
+/* STEP 12: mode bar and diagram overlays (removed completely in mode "off") */
+#mm-modes{position:fixed;left:8px;bottom:8px;z-index:99998;display:flex;flex-wrap:wrap;gap:4px;max-width:min(620px,calc(100vw - 16px));
+  font:12px/1.3 ui-sans-serif,system-ui,sans-serif}
+#mm-modes button{background:#0b1220e6;color:#cbd5e1;border:1px solid #334155;border-radius:6px;padding:4px 9px;cursor:pointer}
+#mm-modes button.on{background:#0369a1;color:#fff;border-color:#38bdf8}
+#mm-mode-help{flex-basis:100%;color:#e2e8f0;background:#0b1220e6;border-radius:6px;padding:3px 7px}
+#mm-mode-help:empty{display:none}
+.mm-ov{pointer-events:none}
+.mm-ov-frame{fill:none;stroke-width:5}
+.mm-ovf-impact-0{stroke:#dc2626}.mm-ovf-impact-1{stroke:#f97316}.mm-ovf-impact-2{stroke:#eab308}.mm-ovf-impact-3{stroke:#fde68a}
+.mm-ovf-cov-good{stroke:#22c55e}.mm-ovf-cov-mid{stroke:#eab308}.mm-ovf-cov-low{stroke:#ef4444}
+.mm-ovf-hot{stroke:#f43f5e;stroke-dasharray:8 5}
+.mm-ovf-diff{stroke:#a855f7}
+.mm-ov-badge{font:700 13px ui-sans-serif,system-ui,sans-serif;fill:#fff;paint-order:stroke;stroke:#0b1220;stroke-width:4px}
+.mm-ov-trust-verified{stroke:#22c55e!important;stroke-width:3.5px!important}
+.mm-ov-trust-static{stroke:#3b82f6!important;stroke-width:3.5px!important}
+.mm-ov-trust-runtime-only{stroke:#a855f7!important;stroke-width:3.5px!important}
+.mm-ov-trust-guess{stroke:#f97316!important;stroke-width:3.5px!important}
+.mm-ov-trust-none{stroke:#ef4444!important;stroke-width:3.5px!important}
+.mm-ov-trust-declared,.mm-ov-trust-not-code{stroke:#64748b!important;stroke-width:3.5px!important;stroke-opacity:.6}
+/* STEP 13: the mode bar stays usable next to the open panel (phone sheet below it, side panel to its right) */
+@media (pointer:coarse){#mm-modes button{min-height:40px;min-width:44px;font-size:14px}}
+@media (max-width:700px){#mm-panel.open ~ #mm-modes{bottom:calc(min(var(--mm-h,62vh),94vh) + 8px)}}
+@media (min-width:701px){#mm-panel.open ~ #mm-modes{max-width:calc(100vw - min(520px,92vw) - 24px)}}
+#mm-spacer{height:96px}
