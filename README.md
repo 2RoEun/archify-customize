@@ -4,6 +4,8 @@ Open a picture of your project, click any box, and drill down to the exact funct
 
 It is built on top of [archify](https://github.com/tt-a1i/archify) (which draws the architecture picture) and adds a code map made from static analysis **plus a traced run of your tests**.
 
+> **Credit and independence:** archify is © 2026 tt-a1i and released under the MIT License. This repository contains none of archify's code: you install archify separately (section 2) and this tool calls it. This is an independent, unofficial project; it is not affiliated with or endorsed by the archify authors.
+
 What you get from one command:
 
 | Output | For whom | What it is |
